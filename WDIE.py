@@ -20,7 +20,21 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+import inspect
 import types
+import functools
+
+def inject(func):
+    assert callable(func)
+    @functools.wraps(func)
+    async def wrapper(res):
+        sig = inspect.signature(func)
+        args = []
+        for foo in sig.parameters:
+            args.append(await aget(res, foo))
+        return func(*args)
+    return wrapper
+
 
 @types.coroutine
 def aget(dic, value):

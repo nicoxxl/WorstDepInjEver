@@ -3,6 +3,13 @@ Worst Depedency Injection Ever
 
 Well, it say it all.
 
+What does it do ?
+-----------------
+
+It do dependency injection, with async/await (so it's compatible with asyncio).
+But it facts, it's more a way for me to play with python than a serious project.
+
+
 Example
 -------
 
@@ -30,6 +37,7 @@ Two
 {1: 'One', 2: 'Two'}
 ```
 
+See example*.py files.
 
 Docs
 ----
